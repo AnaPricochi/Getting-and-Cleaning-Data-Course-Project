@@ -67,3 +67,8 @@ The following recipe lists in order all the operations done to the raw data:
   * Using the list of features provided, only the measurements on the mean and standard deviation were selected (along with subject and activity ID).
 4. Transformations
   * The column with the activity ID is replaced by a merge operation with the activity name.
+  * The abbreviations in column names are expanded
+    * Acc -> Acceleration
+	* Mag -> Magnitude
+	* Gyro -> Gyroscope
+	* Freq -> Frequency

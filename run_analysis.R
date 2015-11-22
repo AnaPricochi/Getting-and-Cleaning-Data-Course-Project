@@ -23,6 +23,8 @@ run_analysis <- function(){
   
   # Removing column ID and putting the activity name after the subject ID
   sub_set <- sub_set[, c(2, ncol(sub_set), 3:(ncol(sub_set)-1))]
+
+  sub_set
 }
 
 ## This function loads a dataset within a folder.
@@ -46,7 +48,11 @@ load_dataset <- function(set = "train"){
     column_names <- rbind(column_names, temp)
   }
   
-  # Load inertials
+  # Making column names more clear
+  column_names <- gsub("Acc", "Acceleration", column_names)
+  column_names <- gsub("Mag", "Magnitude", column_names)
+  column_names <- gsub("Gyro", "Gyroscope", column_names)
+  column_names <- gsub("Freq", "Frequency", column_names)
 
   # Construct dataframe with appropriate names for variables
   data_set <- data.frame(subject_id)
