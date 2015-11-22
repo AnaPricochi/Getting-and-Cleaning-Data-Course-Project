@@ -31,4 +31,5 @@ The R script called run_analysis.R that does the following:
 3. Uses descriptive activity names to name the activities in the data set
   * The script merges the data set resulted from subsetting with the table containing the activity ID and name (this is loaded separately).
 4. Appropriately labels the data set with descriptive variable names. 
+  * The script already does this when loading the data (described in step 1).
 5. From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
