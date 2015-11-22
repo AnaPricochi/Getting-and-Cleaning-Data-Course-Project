@@ -18,8 +18,11 @@ run_analysis <- function(){
   sub_set <- cbind(sub_set, merged_set[, grepl("mean", names(merged_set))])
   sub_set <- cbind(sub_set, merged_set[, grepl("std", names(merged_set))])
   
-  sub_set
+  # Adding activty name by merging with activity level data set
+  sub_set <- merge(sub_set, activity_level, by.x="ActivityID", by.y="ID")
   
+  # Removing column ID and putting the activity name after the subject ID
+  sub_set <- sub_set[, c(2, ncol(sub_set), 3:(ncol(sub_set)-1))]
 }
 
 ## This function loads a dataset within a folder.

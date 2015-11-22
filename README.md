@@ -9,7 +9,7 @@ UCI HAR Dataset Cleaning
 <strong>run_analysis.R</strong> script - Script performing the data ... and cleaning.
 <strong>CodeBook.md</strong> file - The code book that details the data cleaning steps.
 
-### How to run analysis scrip
+### How to run analysis script
 The project contains only one script that performs all the steps of the analysis. 
 The main function (<em>run_analysis.R</em>) function calls a series of other functions to perform certain steps of the analysis. All the functions are documented with appropriate comments.
 
@@ -29,5 +29,6 @@ The R script called run_analysis.R that does the following:
   * The script sub-sets from the features only variables reflecting mean and standard deviation, by taking columns from the merged set.
   * The sub-setting is done by taking the column with `mean` and `std` in the column name.
 3. Uses descriptive activity names to name the activities in the data set
+  * The script merges the data set resulted from subsetting with the table containing the activity ID and name (this is loaded separately).
 4. Appropriately labels the data set with descriptive variable names. 
 5. From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
