@@ -1,5 +1,9 @@
 run_analysis <- function(){
   
+  # Load additional tables
+  activity_level <- read.table("UCI HAR Dataset\\activity_labels.txt")
+  colnames(activity_level) <- c("ID", "ActivityName")
+  
   # Load training set
   training_set <- load_dataset()
   
@@ -9,7 +13,12 @@ run_analysis <- function(){
   # Merge datasets
   merged_set <- rbind(training_set, test_set)
   
-  # 
+  # Sub-setting only mean and standard deviation measurements (along with subject and activity IDs)
+  sub_set <- merged_set[, grepl("ID", names(merged_set))]
+  sub_set <- cbind(sub_set, merged_set[, grepl("mean", names(merged_set))])
+  sub_set <- cbind(sub_set, merged_set[, grepl("std", names(merged_set))])
+  
+  sub_set
   
 }
 
@@ -20,11 +29,11 @@ load_dataset <- function(set = "train"){
   
   # Load subject ID names
   subject_id <- read.table(paste("UCI HAR Dataset\\", set, "\\subject_", set, ".txt", sep=""))
-  column_names <- c("SubjectId")
+  column_names <- c("SubjectID")
 
   # Load activity labels
   activity_label <- read.table(paste("UCI HAR Dataset\\", set, "\\y_", set, ".txt", sep=""))
-  column_names <- rbind(column_names, "ActivityLabel")
+  column_names <- rbind(column_names, "ActivityID")
   
   # Load set
   set <- read.table(paste("UCI HAR Dataset\\", set, "\\X_", set, ".txt", sep=""))
