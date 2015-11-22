@@ -22,6 +22,9 @@ To run the analysis, it is sufficient to source the <em>run_analysis</em> functi
 ### Analysis details
 The R script called run_analysis.R that does the following:
 1. Merges the training and the test sets to create one data set.
+  * The script loads the training and test set from the respective folders and then merges them in one data frame.
+  * At this step, the data is also cleaned (all variables are checked to be within the expected range)
+  * Since observations from the two sets are independent, merging was performed by adding rows
 2. Extracts only the measurements on the mean and standard deviation for each measurement. 
 3. Uses descriptive activity names to name the activities in the data set
 4. Appropriately labels the data set with descriptive variable names. 
