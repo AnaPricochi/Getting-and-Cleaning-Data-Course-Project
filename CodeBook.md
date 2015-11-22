@@ -47,25 +47,16 @@ Code Book
 ### Data
 The resulting data set comprises different activity observations for a group of subjects. The data contains only mean and standard deviation for means. Activities are specified by name, not ID.
 
-|ID| Activity Name |
-|--------|--------|
-|1 |WALKING|
-|2 |WALKING_UPSTAIRS|
-|3 |WALKING_DOWNSTAIRS|
-|4 |SITTING|
-|5 |STANDING|
-|6 |LAYING|
-
 ### Recipe
 The following recipe lists in order all the operations done to the raw data:
-0. Loading the training and the test data from the dataset folder structure (with descriptive variable names)
+* Loading the training and the test data from the dataset folder structure (with descriptive variable names)
   * Variables for each observations were loaded in a single differnet row.
   * Appropriate names were given to columns (measured variable), using the documentation provided.
-1. Merging
+* Merging
   * Since the training and test dataset comprise separate observations, the merging was done simply by adding the rows from the test set to the training set.
-2. Subsetting
+* Subsetting
   * Using the list of features provided, only the measurements on the mean and standard deviation were selected (along with subject and activity ID).
-4. Transformations
+* Transformations
   * The column with the activity ID is replaced by a merge operation with the activity name.
   * The abbreviations in column names are expanded
     * Acc -> Acceleration
