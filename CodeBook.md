@@ -63,3 +63,5 @@ The following recipe lists in order all the operations done to the raw data:
 	* Mag -> Magnitude
 	* Gyro -> Gyroscope
 	* Freq -> Frequency
+* Summarization
+  * The final tidy set is obtained by computing the average of each variable for each activity and each subject.

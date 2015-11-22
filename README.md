@@ -16,7 +16,12 @@ The main function (<em>run_analysis.R</em>) function calls a series of other fun
 To run the analysis, it is sufficient to source the <em>run_analysis</em> function and run it without arguments.
 ```
 > source('~/UCI HAR Dataset/Getting-and-Cleaning-Data-Course-Project/run_analysis.R')
-> run_analysis()
+> tidy_set <- run_analysis()
+```
+
+To export the tidy data use the following commands
+```
+write.table(tidy_set, file="result.txt", row.names=FALSE)
 ```
 
 ### Analysis details
@@ -34,3 +39,4 @@ The R script called run_analysis.R that does the following:
   * The script already does this when loading the data (described in step 1).
   * Besides this, the script expands different abbreviated column names (e.g. `Acc` become `Acceleration` in column names)
 5. From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
+  * The script averages variables using the aggregation utility.

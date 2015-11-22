@@ -24,7 +24,11 @@ run_analysis <- function(){
   # Removing column ID and putting the activity name after the subject ID
   sub_set <- sub_set[, c(2, ncol(sub_set), 3:(ncol(sub_set)-1))]
 
-  sub_set
+  # Average of each variable for each activity and each subject
+  tidy_set <- aggregate(. ~ SubjectID+ActivityName, data = sub_set, mean)
+  
+  # Return tidy_set
+  tidy_set
 }
 
 ## This function loads a dataset within a folder.
